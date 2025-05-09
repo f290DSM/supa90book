@@ -17,7 +17,13 @@ class NumbersView extends ConsumerWidget {
         itemCount: numbers.length,
         itemBuilder: (context, index) {
           int number = numbers[index];
-          return ListTile(title: Text(number.toString()));
+          return Dismissible(
+            key: Key(number.toString()),
+            onDismissed: (direction) {
+              viewmodel.remove(number);
+            },
+            child: ListTile(title: Text(number.toString())),
+          );
         },
       ),
       floatingActionButton: FloatingActionButton.large(
