@@ -13,3 +13,6 @@ void main() async {
   );
   runApp(ProviderScope(child: App()));
 }
+
+// https://encurtador.com.br/MW3Pl
+// https://github.com/f290DSM/supabook90.git 
