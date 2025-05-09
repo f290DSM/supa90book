@@ -6,7 +6,7 @@ part of 'pessoas_viewmodel.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$pessoasViewModelHash() => r'5f7b7b16a4df4ff249e484fad8c5d53eb7709153';
+String _$pessoasViewModelHash() => r'5cedae3ac2f46fdd29c81b6b02f3241d9b4e1a32';
 
 /// See also [PessoasViewModel].
 @ProviderFor(PessoasViewModel)

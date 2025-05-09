@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:supabook90/src/core/providers/app_providers.dart';
 import 'package:supabook90/src/features/pessoas/viewmodel/pessoas_viewmodel.dart';
 
 class PessoasView extends ConsumerWidget {
