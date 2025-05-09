@@ -19,10 +19,29 @@ class NumbersView extends ConsumerWidget {
           int number = numbers[index];
           return Dismissible(
             key: Key(number.toString()),
+            direction: DismissDirection.startToEnd,
             onDismissed: (direction) {
               viewmodel.remove(number);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Number $number removed'),
+                  duration: Duration(seconds: 1),
+                ),
+              );
             },
-            child: ListTile(title: Text(number.toString())),
+            background: Container(
+              color: Colors.red,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Icon(Icons.delete, color: Colors.white),
+              ),
+            ),
+            child: ListTile(
+              title: Text(
+                number.toString(),
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+            ),
           );
         },
       ),
