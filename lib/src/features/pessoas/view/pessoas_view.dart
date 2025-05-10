@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabook90/src/features/pessoas/model/pessoa_model.dart';
@@ -13,8 +11,8 @@ class PessoasView extends ConsumerWidget {
     var pessoas = ref.watch(pessoasViewModelProvider);
     final viewModel = ref.watch(pessoasViewModelProvider.notifier);
 
-    final _nomeController = TextEditingController();
-    final _apelidoController = TextEditingController();
+    final nomeController = TextEditingController();
+    final apelidoController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(title: Text('Pessoas')),
@@ -44,63 +42,59 @@ class PessoasView extends ConsumerWidget {
             context: context,
             builder: (context) {
               return SingleChildScrollView(
-                child: SizedBox(
-                  // height: MediaQuery.sizeOf(context).height * .5,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom,
+                  ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 24.0,
-                      horizontal: 16,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).viewInsets.bottom,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          TextField(
-                            controller: _nomeController,
-                            decoration: InputDecoration(
-                              labelText: 'Nome',
-                              filled: true,
-                            ),
+                    padding: const EdgeInsets.fromLTRB(16, 24, 16, 32),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        TextField(
+                          controller: nomeController,
+                          decoration: InputDecoration(
+                            labelText: 'Nome',
+                            filled: true,
                           ),
-                          SizedBox(height: 16),
-                          TextField(
-                            controller: _apelidoController,
-                            decoration: InputDecoration(
-                              labelText: 'Apelido',
-                              filled: true,
-                            ),
+                        ),
+                        SizedBox(height: 16),
+                        TextField(
+                          controller: apelidoController,
+                          decoration: InputDecoration(
+                            labelText: 'Apelido',
+                            filled: true,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: SizedBox(
-                              height: 60,
-                              child: FilledButton(
-                                onPressed: () async {
-                                  final pessoa = PessoaModel(
-                                    id: 0,
-                                    nome: _nomeController.text,
-                                    apelido: _apelidoController.text,
-                                  );
-                                  await viewModel.addPessoa(pessoa);
-                                  if (context.mounted) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text('Pessoa adicionada com sucesso!'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: SizedBox(
+                            height: 60,
+                            child: FilledButton(
+                              onPressed: () async {
+                                final pessoa = PessoaModel(
+                                  id: 0,
+                                  nome: nomeController.text,
+                                  apelido: apelidoController.text,
+                                );
+                                await viewModel.addPessoa(pessoa);
+                                if (context.mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Pessoa adicionada com sucesso!',
                                       ),
-                                    );
-                                    Navigator.pop(context);
-                                  }
-                                  
-                                },
-                                child: Text('SALVAR'),
-                              ),
+                                    ),
+                                  );
+                                  Navigator.pop(context);
+                                }
+                              },
+                              child: Text('SALVAR'),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
