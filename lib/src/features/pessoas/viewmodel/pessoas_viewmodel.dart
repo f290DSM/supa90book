@@ -21,7 +21,10 @@ class PessoasViewModel extends _$PessoasViewModel {
     state = AsyncLoading();
     await ref.watch(supabaseClientProvider)
         .from('pessoas')
-        .insert(pessoa.toJson());
+        .insert({
+          "nome" : pessoa.nome,
+          "apelido" : pessoa.apelido
+        });
     state = AsyncData(await build());
   }
 }
