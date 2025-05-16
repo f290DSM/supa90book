@@ -11,7 +11,7 @@ class PessoasViewModel extends _$PessoasViewModel {
     state = AsyncLoading();
     var response =
         await ref.watch(supabaseClientProvider)
-        .from('pessoas')
+        .from('pdm2_pessoas')
         .select();
 
     return [for (final p in response) PessoaModel.fromJson(p)];
@@ -20,11 +20,8 @@ class PessoasViewModel extends _$PessoasViewModel {
   Future<void> addPessoa(PessoaModel pessoa) async {
     state = AsyncLoading();
     await ref.watch(supabaseClientProvider)
-        .from('pessoas')
-        .insert({
-          "nome" : pessoa.nome,
-          "apelido" : pessoa.apelido
-        });
+        .from('pdm2_pessoas')
+        .insert(pessoa.toInsertJson());
     state = AsyncData(await build());
   }
 }

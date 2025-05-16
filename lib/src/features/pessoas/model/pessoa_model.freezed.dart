@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PessoaModel {
 
- int get id; String get nome; String get apelido;
+ int? get id; String get nome; String get apelido;
 /// Create a copy of PessoaModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $PessoaModelCopyWith<$Res>  {
   factory $PessoaModelCopyWith(PessoaModel value, $Res Function(PessoaModel) _then) = _$PessoaModelCopyWithImpl;
 @useResult
 $Res call({
- int id, String nome, String apelido
+ int? id, String nome, String apelido
 });
 
 
@@ -66,10 +66,10 @@ class _$PessoaModelCopyWithImpl<$Res>
 
 /// Create a copy of PessoaModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? nome = null,Object? apelido = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? nome = null,Object? apelido = null,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,nome: null == nome ? _self.nome : nome // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,nome: null == nome ? _self.nome : nome // ignore: cast_nullable_to_non_nullable
 as String,apelido: null == apelido ? _self.apelido : apelido // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -82,10 +82,10 @@ as String,
 @JsonSerializable()
 
 class _PessoaModel implements PessoaModel {
-   _PessoaModel({required this.id, required this.nome, required this.apelido});
+   _PessoaModel({this.id, required this.nome, required this.apelido});
   factory _PessoaModel.fromJson(Map<String, dynamic> json) => _$PessoaModelFromJson(json);
 
-@override final  int id;
+@override final  int? id;
 @override final  String nome;
 @override final  String apelido;
 
@@ -122,7 +122,7 @@ abstract mixin class _$PessoaModelCopyWith<$Res> implements $PessoaModelCopyWith
   factory _$PessoaModelCopyWith(_PessoaModel value, $Res Function(_PessoaModel) _then) = __$PessoaModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String nome, String apelido
+ int? id, String nome, String apelido
 });
 
 
@@ -139,10 +139,10 @@ class __$PessoaModelCopyWithImpl<$Res>
 
 /// Create a copy of PessoaModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? nome = null,Object? apelido = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? nome = null,Object? apelido = null,}) {
   return _then(_PessoaModel(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,nome: null == nome ? _self.nome : nome // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,nome: null == nome ? _self.nome : nome // ignore: cast_nullable_to_non_nullable
 as String,apelido: null == apelido ? _self.apelido : apelido // ignore: cast_nullable_to_non_nullable
 as String,
   ));

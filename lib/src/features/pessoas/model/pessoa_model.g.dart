@@ -7,7 +7,7 @@ part of 'pessoa_model.dart';
 // **************************************************************************
 
 _PessoaModel _$PessoaModelFromJson(Map<String, dynamic> json) => _PessoaModel(
-  id: (json['id'] as num).toInt(),
+  id: (json['id'] as num?)?.toInt(),
   nome: json['nome'] as String,
   apelido: json['apelido'] as String,
 );
