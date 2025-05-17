@@ -14,5 +14,5 @@ void main() async {
   runApp(ProviderScope(child: App()));
 }
 
-// https://encurtador.com.br/MW3Pl
-// https://github.com/f290DSM/supabook90.git 
+// https://encurtador.com.br/5Qsdu
+// https://github.com/f290DSM/supa90book.git 

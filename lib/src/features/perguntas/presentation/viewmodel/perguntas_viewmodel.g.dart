@@ -1,29 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pessoas_viewmodel.dart';
+part of 'perguntas_viewmodel.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$pessoasViewModelHash() => r'4bbc94bec33682332eea1f28ab1d8fb23c0b3eec';
+String _$perguntasViewModelHash() =>
+    r'881c6fee5553240b611948884d9379eac9366bfb';
 
-/// See also [PessoasViewModel].
-@ProviderFor(PessoasViewModel)
-final pessoasViewModelProvider = AutoDisposeAsyncNotifierProvider<
-  PessoasViewModel,
-  List<PessoaModel>
+/// See also [PerguntasViewModel].
+@ProviderFor(PerguntasViewModel)
+final perguntasViewModelProvider = AutoDisposeAsyncNotifierProvider<
+  PerguntasViewModel,
+  List<PerguntaDomain>
 >.internal(
-  PessoasViewModel.new,
-  name: r'pessoasViewModelProvider',
+  PerguntasViewModel.new,
+  name: r'perguntasViewModelProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product')
           ? null
-          : _$pessoasViewModelHash,
+          : _$perguntasViewModelHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$PessoasViewModel = AutoDisposeAsyncNotifier<List<PessoaModel>>;
+typedef _$PerguntasViewModel = AutoDisposeAsyncNotifier<List<PerguntaDomain>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
