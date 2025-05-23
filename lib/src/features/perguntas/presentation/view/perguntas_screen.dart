@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabook90/src/features/perguntas/domain/pergunta_domain.dart';
+import 'package:supabook90/src/features/perguntas/presentation/view/resposta_view.dart';
 import 'package:supabook90/src/features/perguntas/presentation/viewmodel/perguntas_viewmodel.dart';
 
 class PerguntasView extends ConsumerWidget {
@@ -16,7 +17,9 @@ class PerguntasView extends ConsumerWidget {
           return _PerguntasWidget(perguntas: data);
         },
         error: (error, stackTrace) {
-          return Center(child: Text('Erro ao carregar perguntas'));
+          return Center(
+            child: Text('Erro ao carregar perguntas: ${error.toString()}'),
+          );
         },
         loading: () => Center(child: CircularProgressIndicator()),
       ),
@@ -38,8 +41,16 @@ class _PerguntasWidget extends StatelessWidget {
         return ListTile(
           leading: CircleAvatar(child: Text(pergunta.id.toString())),
           title: Text(pergunta.texto),
+          onTap:
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RespostasView(idPergunta: pergunta.id!),
+                ),
+              ),
         );
-      }, separatorBuilder: (BuildContext context, int index) => Divider(),
+      },
+      separatorBuilder: (BuildContext context, int index) => Divider(),
     );
   }
 }
